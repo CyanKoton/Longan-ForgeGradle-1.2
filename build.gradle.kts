@@ -8,7 +8,8 @@ plugins {
 }
 
 //改写ID
-group = "cn.beanflame.forge"	//forge
+group = "io.github.longan-studio"	//io.github.longan-studio
+//group = "cn.beanflame.forge"	//forge
 // group = "com.anatawa12.forge"
 
 if (project.hasProperty("push_release")) {
