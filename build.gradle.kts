@@ -207,7 +207,6 @@ publishing {
             url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
         }
 
-        /*
         maven {
             name = "mavenCentral"
             url = if (version.toString().endsWith("SNAPSHOT"))
@@ -219,16 +218,13 @@ publishing {
                 password = project.findProperty("ossPassword")?.toString() ?: ""
             }
         }
-        */
-
     }
 }
 
-/*
+
 signing {
     sign(publishing.publications["bintray"])
 }
-*/
 
 
 if (project.hasProperty("push_release")) {
