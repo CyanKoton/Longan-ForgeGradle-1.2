@@ -81,25 +81,21 @@ publishing {
             val snapshotsRepoUrl = "$buildDir/repos/snapshots"
             url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
         }
-
-        /*
         maven {
             name = "mavenCentral"
             url = if (version.toString().endsWith("SNAPSHOT"))
-                uri("https://oss.sonatype.org/content/repositories/snapshots")
-            else uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+            else uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
 
             credentials {
-                username = project.findProperty("com.anatawa12.sonatype.username")?.toString() ?: ""
-                password = project.findProperty("com.anatawa12.sonatype.passeord")?.toString() ?: ""
+                username = project.findProperty("ossUsername")?.toString() ?: ""
+                password = project.findProperty("ossPassword")?.toString() ?: ""
             }
         }
-        */
     }
 }
 
-/*
+
 signing {
     sign(publishing.publications["bintray"])
 }
- */
