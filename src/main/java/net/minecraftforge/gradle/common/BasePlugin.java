@@ -101,6 +101,12 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
             public void execute(Project proj) {
                 // the forge's repository doesn't have pom file.
                 addMavenRepo(proj, "forge", Constants.FORGE_MAVEN, false);
+
+                //ALIYUN_MAVEN 阿里
+                addMavenRepo(proj, "aliyun", Constants.ALIYUN_MAVEN);
+
+                //MAVEN2_MAVEN 中央
+                addMavenRepo(proj, "maven", Constants.MAVEN_MAVEN);
                 proj.getRepositories().mavenCentral();
 
                 //LONGAN_MAVEN 龙眼 1222
@@ -212,7 +218,7 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
         logger.lifecycle("         by: Searge, ProfMobius, Fesh0r,         ");
         logger.lifecycle("         R4wk, ZeuX, IngisKahn, bspkrs           ");
         logger.lifecycle("         Lss233 Reversions for 1.7.10            ");
-        logger.lifecycle("         beanflame Longan Mirror                 ");
+        logger.lifecycle("         beanflame Longan Forge Gradle           ");
         logger.lifecycle("#################################################");
 
         //龙眼

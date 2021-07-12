@@ -1,5 +1,4 @@
 plugins {
-    id("com.jfrog.bintray") version "1.8.4"
     java
     idea
     eclipse
@@ -7,24 +6,15 @@ plugins {
     signing
 }
 
-//改写ID
-group = "io.github.longan-studio"	//io.github.longan-studio
-//group = "cn.beanflame.forge"	//forge
-// group = "com.anatawa12.forge"
 
-if (project.hasProperty("push_release")) {
-    version = "1.2-1.0.6"
-} else {
-    version = "1.2-1.1.0"	//1.2-1.0.7-SNAPSHOT        -SNAPSHOT
+group = "io.github.longan-studio"
+version = "1.2-1.1.0.2"
 
-    //1.0.9
-
-	//version = "1.2-1.0.6"
-}
 
 base {
     archivesBaseName = "LonganForgeGradle"
 }
+
 java {
     targetCompatibility = JavaVersion.VERSION_1_6
     sourceCompatibility = JavaVersion.VERSION_1_6
@@ -149,7 +139,7 @@ val test by tasks.getting(Test::class) {
 
 publishing {
     publications {
-        val bintray by this.creating(MavenPublication::class) {
+        val maven by this.creating(MavenPublication::class) {
             from(components["java"])
             artifactId = base.archivesBaseName
 
@@ -206,8 +196,6 @@ publishing {
             val snapshotsRepoUrl = "$buildDir/repos/snapshots"
             url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
         }
-
-        /*
         maven {
             name = "mavenCentral"
             url = if (version.toString().endsWith("SNAPSHOT"))
@@ -219,18 +207,16 @@ publishing {
                 password = project.findProperty("ossPassword")?.toString() ?: ""
             }
         }
-        */
-
     }
 }
 
-/*
+
 signing {
-    sign(publishing.publications["bintray"])
+    sign(publishing.publications["maven"])
 }
-*/
 
 
+/*
 if (project.hasProperty("push_release")) {
     bintray {
         user = project.findProperty("BINTRAY_USER")?.toString() ?: ""
@@ -249,10 +235,11 @@ if (project.hasProperty("push_release")) {
         })
     }
 }
+*/
 
-val bintrayUpload by tasks.getting
-val assemble by tasks.getting
-bintrayUpload.dependsOn(assemble)
+//val bintrayUpload by tasks.getting
+//val assemble by tasks.getting
+//bintrayUpload.dependsOn(assemble)
 
 // write out version so its convenient for doc deployment
 file("build").mkdirs()

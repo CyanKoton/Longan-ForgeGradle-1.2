@@ -55,7 +55,11 @@ public class Constants {
 
     //龙眼   https://longan.beanflame.cn/maven
     public static final String LONGAN_MAVEN  = "https://longan.beanflame.cn/maven";
+    // 阿里 https://maven.aliyun.com/repository/public
+    public static final String ALIYUN_MAVEN  = "https://maven.aliyun.com/repository/public";
 
+    // MAVEN 中央  https://repo1.maven.org/maven2
+    public static final String MAVEN_MAVEN  = "https://repo1.maven.org/maven2";
 
     public static final String ASSETS_INDEX_URL = "https://s3.amazonaws.com/Minecraft.Download/indexes/{ASSET_INDEX}.json";
 
