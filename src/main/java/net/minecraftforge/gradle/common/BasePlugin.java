@@ -132,11 +132,12 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
                 // remove git sha
                 version = version.substring(0, version.lastIndexOf('-'));
                 project.getDependencies().add(SeparatedLauncher.configurationName,
-						"cn.beanflame.forge:separated:" + version);
-
+						"io.github.longan-studio:separated:" + version);
+                //longan-studio.github.io
+                //cn.beanflame.forge:separated:
                 //龙眼
-						// "cn.beanflame.forge:separated:" + version
-						// "com.anatawa12.forge:separated:" + version
+                // "cn.beanflame.forge:separated:" + version
+                // "com.anatawa12.forge:separated:" + version
             }
         }
 
