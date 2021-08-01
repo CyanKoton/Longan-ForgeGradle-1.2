@@ -26,6 +26,7 @@ repositories {
     maven("https://maven.aliyun.com/repository/public/") {
         name = "aliyun"
     }
+    
     maven("https://maven.minecraftforge.net") {
         name = "forge"
     }
