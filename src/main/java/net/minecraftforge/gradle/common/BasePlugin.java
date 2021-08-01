@@ -209,18 +209,18 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
         if (!displayBanner)
             return;
         Logger logger = this.project.getLogger();
-        logger.lifecycle("#################################################");
-        logger.lifecycle("         ForgeGradle {}        ", this.getVersionString());
-        logger.lifecycle("   https://github.com/anatawa12/ForgeGradle-1.2  ");
-        logger.lifecycle("#################################################");
-        logger.lifecycle("               Powered by MCP {}               ", this.delayedString("{MCP_VERSION}"));
+        logger.lifecycle("###########################################################");
+        logger.lifecycle("              ForgeGradle {}        ", this.getVersionString());
+        logger.lifecycle("  https://github.com/longan-studio/longan-forge-gradle-1.2 ");
+        logger.lifecycle("###########################################################");
+        logger.lifecycle("              Powered by MCP {}               ", this.delayedString("{MCP_VERSION}"));
         //noinspection HttpUrlsUsage
-        logger.lifecycle("             http://modcoderpack.com             ");
-        logger.lifecycle("         by: Searge, ProfMobius, Fesh0r,         ");
-        logger.lifecycle("         R4wk, ZeuX, IngisKahn, bspkrs           ");
-        logger.lifecycle("         Lss233 Reversions for 1.7.10            ");
-        logger.lifecycle("         beanflame Longan Forge Gradle           ");
-        logger.lifecycle("#################################################");
+        logger.lifecycle("              http://modcoderpack.com                      ");
+        logger.lifecycle("              by: Searge, ProfMobius, Fesh0r,              ");
+        logger.lifecycle("              R4wk, ZeuX, IngisKahn, bspkrs                ");
+        logger.lifecycle("              Lss233 Reversions for 1.7.10                 ");
+        logger.lifecycle("              beanflame Longan Forge Gradle                ");
+        logger.lifecycle("###########################################################");
 
         //龙眼
 
