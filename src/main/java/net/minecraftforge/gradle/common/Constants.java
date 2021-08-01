@@ -51,10 +51,20 @@ public class Constants {
     public static final String ASSETS_URL = "https://resources.download.minecraft.net";
     public static final String LIBRARY_URL = "https://libraries.minecraft.net/";
     
+    // ----------------------------------------------------------------------------------
+    
     public static final String  FORGE_MAVEN = "https://maven.minecraftforge.net";
 
+    // ----------------------------------------------------------------------------------
+    
+    // longan-studio-maven
+
+    // 龙眼 GitHub MAVEN  https://longan.beanflame.cn/maven
+    public static final String LONGAN_STUDIO_GITHUB_MAVEN  = "https://github.com/longan-studio/maven";
+    
     //龙眼   https://longan.beanflame.cn/maven
     public static final String LONGAN_MAVEN  = "https://longan.beanflame.cn/maven";
+    
     // 阿里 https://maven.aliyun.com/repository/public
     public static final String ALIYUN_MAVEN  = "https://maven.aliyun.com/repository/public";
 
@@ -63,6 +73,8 @@ public class Constants {
 
     public static final String ASSETS_INDEX_URL = "https://s3.amazonaws.com/Minecraft.Download/indexes/{ASSET_INDEX}.json";
 
+    // ----------------------------------------------------------------------------------
+    
     // MCP things
     public static final String CONFIG_MCP_DATA = "mcpSnapshotDataConfig";
     @SuppressWarnings("HttpUrlsUsage")
