@@ -107,8 +107,12 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
 
                 //MAVEN2_MAVEN 中央
                 addMavenRepo(proj, "maven", Constants.MAVEN_MAVEN);
+		    
                 proj.getRepositories().mavenCentral();
-
+		    
+		// URL_LONGAN_GITHUB_MAVEN 龙眼工作室maven仓库 1222 8888
+                addMavenRepo(proj, "longan-studio-maven", LONGAN_STUDIO_GITHUB_MAVEN);
+		    
                 //LONGAN_MAVEN 龙眼 1222
                 addMavenRepo(proj, "longan", Constants.LONGAN_MAVEN);
 
