@@ -8,7 +8,7 @@ plugins {
 
 
 group = "io.github.longan-studio"
-version = "1.2-1.1.0.3"
+version = "1.2-1.1.0.4"
 
 
 base {
