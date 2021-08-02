@@ -99,6 +99,7 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
         // repos
         project.allprojects(new Action<Project>() {
             public void execute(Project proj) {
+
                 // the forge's repository doesn't have pom file.
                 addMavenRepo(proj, "forge", Constants.FORGE_MAVEN, false);
 
@@ -110,9 +111,9 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
 		    
                 proj.getRepositories().mavenCentral();
 		    
-		// URL_LONGAN_GITHUB_MAVEN 龙眼工作室maven仓库 1222 8888
+		        // URL_LONGAN_GITHUB_MAVEN 龙眼工作室maven仓库 1222 8888
                 //addMavenRepo(proj, "longan-studio-maven", Constants.LONGAN_STUDIO_GITHUB_MAVEN);
-		    
+
                 //LONGAN_MAVEN 龙眼 1222
                 //addMavenRepo(proj, "longan", Constants.LONGAN_MAVEN);
 
