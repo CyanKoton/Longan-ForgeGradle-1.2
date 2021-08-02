@@ -8,8 +8,8 @@ plugins {
 
 
 group = "io.github.longan-studio"
-version = "1.1.0.6"
-//1.2-
+version = "1.1.0.7"
+
 
 base {
     archivesBaseName = "LonganForgeGradle-1.2"
@@ -91,6 +91,7 @@ dependencies {
     // mcp stuff
     implementation("de.oceanlabs.mcp:RetroGuard:3.6.6")
     implementation("de.oceanlabs.mcp:mcinjector:3.2-SNAPSHOT")
+
     implementation("net.minecraftforge:Srg2Source:4.2.7")
 
     // stupid maven
@@ -100,8 +101,12 @@ dependencies {
     compileOnly("com.mojang:authlib:1.5.16")
     compileOnly("net.minecraft:launchwrapper:1.11")
 
-    testImplementation("junit:junit:4.+")
+    // Google FindBugs JSR305
+    compileOnly("com.google.code.findbugs:jsr305:3.0.2")
+
+    // testImplementation("junit:junit:4.+")
 }
+
 
 val compileJava by tasks.getting(JavaCompile::class) {
     options.isDeprecation = true
