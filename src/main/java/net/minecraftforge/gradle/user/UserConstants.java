@@ -18,7 +18,8 @@ public final class UserConstants {
     public static final String CONFIG_RUNTIME_CLASSPATH = "runtimeClasspath";
     public static final String CONFIG_COMPILE = "implementation";
 
-    static final String FORGE_JAVADOC_URL = Constants.FORGE_MAVEN + "/net/minecraftforge/forge/{API_VERSION}/forge-{API_VERSION}-javadoc.zip";
+    // FORGE_MAVEN
+    static final String FORGE_JAVADOC_URL = Constants.getMirrorstation().getForgeMavenUrl() + "/net/minecraftforge/forge/{API_VERSION}/forge-{API_VERSION}-javadoc.zip";
 
     static final String NATIVES_DIR_OLD = "{BUILD_DIR}/natives";
     static final String SOURCES_DIR = "{BUILD_DIR}/sources";

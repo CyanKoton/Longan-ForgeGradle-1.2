@@ -196,7 +196,9 @@ public class DownloadAssetsTask extends DefaultTask {
                             if (localMc.exists() && Constants.hash(localMc, "SHA").equals(asset.hash))
                                 stream = new BufferedInputStream(new FileInputStream(localMc)); // if so, copy
                             else
-                                stream = new BufferedInputStream(new URL(Constants.ASSETS_URL + "/" + asset.path).openStream()); // otherwise download
+                                //stream = new BufferedInputStream(new URL(Constants.ASSETS_URL + "/" + asset.path).openStream()); // otherwise download
+                                // otherwise download 否则下载
+                                stream = new BufferedInputStream(new URL(Constants.getMirrorstation().getAssetsUrl() + "/" + asset.path).openStream());
 
                             Files.write(ByteStreams.toByteArray(stream), file);
                             stream.close();

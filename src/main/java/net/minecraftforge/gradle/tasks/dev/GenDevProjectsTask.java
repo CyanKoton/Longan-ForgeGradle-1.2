@@ -92,7 +92,8 @@ public class GenDevProjectsTask extends DefaultTask {
                 "    maven",
                 "    {",
                 "        name 'minecraft'",
-                "        url '" + Constants.LIBRARY_URL + "'",
+                // LIBRARY_URL
+                "        url '" + Constants.getMirrorstation().getLibraryUrl() + "'",
                 "    }",
                 "}",
                 "",

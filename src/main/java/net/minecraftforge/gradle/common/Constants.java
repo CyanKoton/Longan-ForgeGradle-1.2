@@ -3,6 +3,7 @@ package net.minecraftforge.gradle.common;
 import com.google.common.base.Joiner;
 import com.google.common.io.ByteStreams;
 import groovy.lang.Closure;
+import io.github.longanstudio.gradle.Mirrorstation;
 import net.minecraftforge.gradle.StringUtils;
 import net.minecraftforge.gradle.json.version.OS;
 import org.gradle.api.Project;
@@ -35,6 +36,10 @@ public class Constants {
     // extension nam
     public static final String EXT_NAME_MC = "minecraft";
     public static final String EXT_NAME_JENKINS = "jenkins";
+    // ----------------------------------------------------------------------------------
+    // Mirrorstation
+    private static Mirrorstation mirrorstation;
+    // ----------------------------------------------------------------------------------
 
     @SuppressWarnings("serial")
     public static final Closure<Boolean> CALL_FALSE = new Closure<Boolean>(null) {
@@ -43,44 +48,35 @@ public class Constants {
         }
     };
 
+
+    /*
     // urls
     public static final String MC_JSON_URL = "https://s3.amazonaws.com/Minecraft.Download/versions/{MC_VERSION}/{MC_VERSION}.json";
     public static final String MC_JAR_URL = "https://s3.amazonaws.com/Minecraft.Download/versions/{MC_VERSION}/{MC_VERSION}.jar";
     public static final String MC_SERVER_URL = "https://s3.amazonaws.com/Minecraft.Download/versions/{MC_VERSION}/minecraft_server.{MC_VERSION}.jar";
-    public static final String MCP_URL = "https://anatawa12.github.io/ForgeGradle-resources/fernflower-fix-FG1.2.zip";
+    public static final String MCP_URL = "https://files.minecraftforge.net/fernflower-fix-1.0.zip";
     public static final String ASSETS_URL = "https://resources.download.minecraft.net";
     public static final String LIBRARY_URL = "https://libraries.minecraft.net/";
-    
-    // ----------------------------------------------------------------------------------
-    
-    public static final String  FORGE_MAVEN = "https://maven.minecraftforge.net";
-
-    // ----------------------------------------------------------------------------------
-    
-    // longan-studio-maven
-
-    // 龙眼 GitHub MAVEN  https://longan.beanflame.cn/maven
-    public static final String LONGAN_STUDIO_GITHUB_MAVEN  = "https://github.com/longan-studio/maven";
-    
-    //龙眼   https://longan.beanflame.cn/maven
-    public static final String LONGAN_MAVEN  = "https://longan.beanflame.cn/maven";
-    
-    // 阿里 https://maven.aliyun.com/repository/public
-    public static final String ALIYUN_MAVEN  = "https://maven.aliyun.com/repository/public";
-
-    // MAVEN 中央  https://repo1.maven.org/maven2
-    public static final String MAVEN_MAVEN  = "https://repo1.maven.org/maven2";
-
     public static final String ASSETS_INDEX_URL = "https://s3.amazonaws.com/Minecraft.Download/indexes/{ASSET_INDEX}.json";
 
+
+    // maven
+    public static final String LONGAN_MAVEN_URL  = "https://longan.beanflame.cn/maven";
+    public static final String ALIYUN_MAVEN_URL  = "https://maven.aliyun.com/repository/public";
+    public static final String MAVEN_MAVEN_URL  = "https://repo1.maven.org/maven2";
+    public static final String FORGE_MAVEN_URL = "https://maven.minecraftforge.net";
+    */
+
+
     // ----------------------------------------------------------------------------------
-    
+
+
     // MCP things
     public static final String CONFIG_MCP_DATA = "mcpSnapshotDataConfig";
     @SuppressWarnings("HttpUrlsUsage")
     public static final String MCP_JSON_URL = "http://export.mcpbot.bspk.rs/versions.json";
 
-    // things in the cache dir.
+    // things in the cache dir. ok
     public static final String NATIVES_DIR = "{CACHE_DIR}/minecraft/net/minecraft/minecraft_natives/{MC_VERSION}";
     public static final String MCP_DATA_DIR = "{CACHE_DIR}/minecraft/de/oceanlabs/mcp/mcp_{MAPPING_CHANNEL}/{MAPPING_VERSION}/";
     public static final String JAR_CLIENT_FRESH = "{CACHE_DIR}/minecraft/net/minecraft/minecraft/{MC_VERSION}/minecraft-{MC_VERSION}.jar";
@@ -265,5 +261,21 @@ public class Constants {
             throw new RuntimeException("Resource " + resource + " not found");
 
         return url;
+    }
+
+
+    // ----------------------------------------------------------------------------------
+
+    // Mirrorstation
+
+    // Mirrorstation Mirrorstation
+    public static Mirrorstation getMirrorstation(Project project) {
+        if(mirrorstation == null) {
+            mirrorstation = Mirrorstation.getInstance(project);
+        }
+        return mirrorstation;
+    }
+    public static Mirrorstation getMirrorstation() {
+        return mirrorstation;
     }
 }

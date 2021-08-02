@@ -54,6 +54,7 @@ public class FmlUserPlugin extends UserPatchBasePlugin {
     @Override
     protected String getVersionsJsonUrl() {
         // TODO Auto-generated method stub
-        return Constants.FORGE_MAVEN + "/net/minecraftforge/fml/json";
+        // FORGE_MAVEN
+        return Constants.getMirrorstation().getForgeMavenUrl() + "/net/minecraftforge/fml/json";
     }
 }

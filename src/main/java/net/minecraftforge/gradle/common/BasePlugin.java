@@ -75,6 +75,9 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
             }
         }
 
+        // Mirrorstation
+        Constants.getMirrorstation(arg);
+
         // logging
         {
             File projectCacheDir = project.getGradle().getStartParameter().getProjectCacheDir();
@@ -101,23 +104,22 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
             public void execute(Project proj) {
 
                 // the forge's repository doesn't have pom file.
-                addMavenRepo(proj, "forge", Constants.FORGE_MAVEN, false);
+                // FORGE_MAVEN_URL
+                addMavenRepo(proj, "forge", Constants.getMirrorstation().getForgeMavenUrl(), false);
 
-                //ALIYUN_MAVEN 阿里
-                addMavenRepo(proj, "aliyun", Constants.ALIYUN_MAVEN);
+                //ALIYUN_MAVEN
+                addMavenRepo(proj, "aliyun", Constants.getMirrorstation().getAliyunMavenUrl());
 
-                //MAVEN2_MAVEN 中央
-                addMavenRepo(proj, "maven", Constants.MAVEN_MAVEN);
+                //MAVEN_MAVEN
+                addMavenRepo(proj, "maven", Constants.getMirrorstation().getMavenMavenUrl());
 		    
                 proj.getRepositories().mavenCentral();
-		    
-		        // URL_LONGAN_GITHUB_MAVEN 龙眼工作室maven仓库 1222 8888
-                //addMavenRepo(proj, "longan-studio-maven", Constants.LONGAN_STUDIO_GITHUB_MAVEN);
 
-                //LONGAN_MAVEN 龙眼 1222
-                //addMavenRepo(proj, "longan", Constants.LONGAN_MAVEN);
+                //LONGAN_MAVEN
+                addMavenRepo(proj, "longan", Constants.getMirrorstation().getLonganMavenUrl());
 
-                addMavenRepo(proj, "minecraft", Constants.LIBRARY_URL);
+                //LIBRARY_URL
+                addMavenRepo(proj, "minecraft", Constants.getMirrorstation().getLibraryUrl());
             }
         });
 
@@ -310,24 +312,28 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
         task = makeTask("downloadClient", DownloadTask.class);
         {
             task.setOutput(delayedFile(Constants.JAR_CLIENT_FRESH));
-            task.setUrl(delayedString(Constants.MC_JAR_URL));
+            //task.setUrl(delayedString(Constants.MC_JAR_URL));     ok
+            task.setUrl(delayedString(Constants.getMirrorstation().getMcJarUrl()));
         }
 
         task = makeTask("downloadServer", DownloadTask.class);
         {
             task.setOutput(delayedFile(Constants.JAR_SERVER_FRESH));
-            task.setUrl(delayedString(Constants.MC_SERVER_URL));
+            //task.setUrl(delayedString(Constants.MC_SERVER_URL));      ok
+            task.setUrl(delayedString(Constants.getMirrorstation().getMcServerUrl()));
         }
 
         ObtainFernFlowerTask mcpTask = makeTask("downloadMcpTools", ObtainFernFlowerTask.class);
         {
-            mcpTask.setMcpUrl(delayedString(Constants.MCP_URL));
+            //MCP_URL
+            mcpTask.setMcpUrl(delayedString(Constants.getMirrorstation().getMcpUrl()));
             mcpTask.setFfJar(delayedFile(Constants.FERNFLOWER));
         }
 
         EtagDownloadTask etagDlTask = makeTask("getAssetsIndex", EtagDownloadTask.class);
         {
-            etagDlTask.setUrl(delayedString(Constants.ASSETS_INDEX_URL));
+            //etagDlTask.setUrl(delayedString(Constants.ASSETS_INDEX_URL));     ok
+            etagDlTask.setUrl(delayedString(Constants.getMirrorstation().getAssetsIndexUrl()));
             etagDlTask.setFile(delayedFile(Constants.ASSETS + "/indexes/{ASSET_INDEX}.json"));
             etagDlTask.setDieWithError(false);
 
@@ -352,7 +358,8 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
 
         etagDlTask = makeTask("getVersionJson", EtagDownloadTask.class);
         {
-            etagDlTask.setUrl(delayedString(Constants.MC_JSON_URL));
+            //etagDlTask.setUrl(delayedString(Constants.MC_JSON_URL));      ok
+            etagDlTask.setUrl(delayedString(Constants.getMirrorstation().getMcJsonUrl()));
             etagDlTask.setFile(delayedFile(Constants.VERSION_JSON));
             etagDlTask.setDieWithError(false);
             etagDlTask.doLast(new Closure<Boolean>(project) // normalizes to linux endings

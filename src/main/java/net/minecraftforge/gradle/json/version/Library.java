@@ -57,7 +57,8 @@ public class Library {
     }
 
     public String getUrl() {
-        return url == null ? Constants.LIBRARY_URL : url;
+        // LIBRARY_URL
+        return url == null ? Constants.getMirrorstation().getLibraryUrl() : url;
     }
 
     @Override
