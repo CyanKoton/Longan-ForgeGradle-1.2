@@ -104,7 +104,7 @@ dependencies {
     // Google FindBugs JSR305
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
 
-    // testImplementation("junit:junit:4.+")
+    testImplementation("junit:junit:4.+")
 }
 
 
