@@ -8,11 +8,11 @@ plugins {
 
 
 group = "io.github.longan-studio"
-version = "1.2-1.1.0.4"
+version = "1.2-1.1.0.5"
 
 
 base {
-    archivesBaseName = "LonganForgeGradle"
+    archivesBaseName = "LonganForgeGradle-1.2"
 }
 
 java {
