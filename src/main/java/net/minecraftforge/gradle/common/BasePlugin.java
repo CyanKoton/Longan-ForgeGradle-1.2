@@ -76,7 +76,8 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
         }
 
         // Mirrorstation
-        Constants.getMirrorstation(arg);
+        project.getExtensions().create(Mirrorstation.EXT_NAME_MIRRORSTATION, Mirrorstation.class, project);
+        Constants.getMirrorstation(project);
 
         // logging
         {
