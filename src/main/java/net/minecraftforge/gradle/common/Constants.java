@@ -271,7 +271,8 @@ public class Constants {
     // Mirrorstation Mirrorstation
     public static Mirrorstation getMirrorstation(Project project) {
         if(mirrorstation == null) {
-            mirrorstation = Mirrorstation.getInstance(project);
+            mirrorstation = (Mirrorstation) project.getExtensions().getByName(Mirrorstation.EXT_NAME_MIRRORSTATION);
+            // mirrorstation = Mirrorstation.getInstance(project);
         }
         return mirrorstation;
     }
