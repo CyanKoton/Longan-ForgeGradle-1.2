@@ -36,6 +36,7 @@ import org.gradle.api.artifacts.repositories.MavenArtifactRepository;
 import org.gradle.api.logging.Logger;
 import org.gradle.api.tasks.Delete;
 import org.gradle.testfixtures.ProjectBuilder;
+import io.github.longanstudio.gradle.Mirrorstation;
 
 import java.io.File;
 import java.io.IOException;
