@@ -142,7 +142,7 @@ public abstract class BasePlugin<K extends BaseExtension> implements Plugin<Proj
 		version = version.substring(0, version.lastIndexOf('-'));
 		project.getDependencies().add(
 			SeparatedLauncher.configurationName,
-			"io.github.longan-studio:separated:1.2-1.1.0.4"
+			"io.github.longan-studio:separated-1.2:1.1.0.7"
 		);
 
 		    
